@@ -3,6 +3,6 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Decision-Intelligence-69/',
+  base: process.env.VERCEL ? '/' : './',
   plugins: [react()],
 })
