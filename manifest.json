@@ -1,0 +1,18 @@
+{
+  "name": "Rakshak AI - Flood Decision Intelligence",
+  "short_name": "Rakshak AI",
+  "description": "Decide faster than the water rises. Minimal, calm flood response intelligence for citizens and disaster response officers.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0D131D",
+  "theme_color": "#0D131D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
