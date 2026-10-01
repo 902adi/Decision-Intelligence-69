@@ -1,220 +1,113 @@
-﻿# रक्षक · Rakshak
-### *Decide faster than the water rises.*
+# 🌊 रक्षक · RAKSHAK
+### *AI Decision Intelligence for Urban Crisis & Flood Response*
 
-> **AI Decision Intelligence for Flood Response** — a minimalist, calm, and beautiful crisis-management web app built for citizens, field workers, and emergency officers during flood events.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-00B4D8?style=for-the-badge&logo=github)](https://902adi.github.io/Decision-Intelligence-69/)
+[![Build Status](https://img.shields.io/badge/Build-Passing-2ECC71?style=for-the-badge&logo=vite)](https://github.com/902adi/Decision-Intelligence-69)
+[![License](https://img.shields.io/badge/License-MIT-3498DB?style=for-the-badge)](LICENSE)
 
----
-
-## 🌊 What is Rakshak?
-
-**Rakshak** (रक्षक — *protector* in Sanskrit) is an AI-powered flood response platform that:
-
-- **Analyzes** real-time rainfall, river level, ward elevation, and SOS signals
-- **Finds patterns** across 12 city wards using a deterministic decision engine
-- **Compares alternatives** in a Scenario Comparison Lab (AI Plan vs Traditional Reactive Plan)
-- **Assesses risk** per ward every 5 minutes and generates risk scores (0–100)
-- **Gives explainable recommendations** that humans can approve or override with a full audit trail
-- **Predicts upcoming weather phenomena** (cloudburst, dam surge, heavy rain) with plain-language explanations of *how* each prediction is made
+> **Rakshak (रक्षक)** is a calm, authoritative AI Decision Intelligence command & citizen platform for extreme flood events. It analyzes multimodal sensor data, models flood surge dynamics across urban wards, and generates single, high-confidence, actionable decisions within critical response windows.
 
 ---
 
-## ✨ Key Features
+## 🚀 Live Demo
 
-### 🏠 Citizen Mode
-
-| Feature | Description |
-|---|---|
-| **Live Risk Status** | One large card in plain language — Safe & Dry / Watch Water / Rising Water / High Danger |
-| **AI Phenomenon Forecast** | Predicts next weather event with probability %, timeline, and signal bars explaining the prediction |
-| **GPS Location Tracker** | Detects your ward automatically via browser geolocation |
-| **Dry Walking Path** | Safe evacuation route avoiding flooded roads |
-| **SOS Rescue Request** | One-tap boat/ambulance dispatch with live status tracking |
-| **Nearest Shelter Info** | Live capacity, food packets, clean water, and medical kits at nearest camp |
-| **Community Check-in** | "I'm safe / I need help / Leaving now" — updates officer dashboard instantly |
-| **Problem Reporting** | Photo + location incident reports sent to officers in under 1 second |
-| **Emergency Helplines** | 112, 108, Police — tap to call |
-| **Animated Background** | Rain drops + glowing orbs that intensify with rainfall level |
-
-### 🎛️ Officer Command Room (Gated Access)
-
-| Tab | Description |
-|---|---|
-| **Map** | Live SVG city map with ward-level risk heatmap + AI Actions panel |
-| **SOS** | Priority queue of all active rescue requests with citizen details |
-| **Weather** | IMD-style forecast bars, river level trend, and scenario projections |
-| **Log** | Full audit trail — every AI recommendation and human override with timestamps |
-
-**Officer tools:**
-- 4 scenario presets (Normal Day / Heavy Rain / Cloudburst / Dam Release) with **sound effects**
-- Rainfall intensity slider (0–240 mm/h) that recalculates all 12 ward risks in real time
-- Time scrubber (T+0h → T+6h) with auto-play for projections
-- Map/Satellite toggle (Google Maps integration)
-- Approve or Override AI recommendations — all logged
+- **URL:** [https://902adi.github.io/Decision-Intelligence-69/](https://902adi.github.io/Decision-Intelligence-69/)
+- **Mobile Citizen View:** Direct link via `?mode=citizen` query param or bottom toggle.
+- **Incident Commander Room:** Real-time simulation, ward risk maps, SOS triage, and explainable audit logs.
 
 ---
 
-## 🧠 AI Decision Engine
+## ⚡ Core Capabilities
 
-The decision pipeline runs entirely **client-side** (no backend needed for the prototype):
+### 1. 🎛️ Incident Commander Center
+- **Decisive Decision Brief:** Top-level executive verdict with action countdown timer, cost-of-delay risk curve, and Monte Carlo confidence score.
+- **Explainability & Alternatives:** Transparent signal attribution, rejected counter-proposals with mathematical rationale, and complete audit logging.
+- **Dynamic Topology & Ward Heatmap:** Real-time flood simulation across all municipal wards based on rainfall intensity (0–240 mm/h) and river surge.
+- **Triage & SOS Dispatch:** Real-time prioritized queue of rescue requests with battery level, water height, and dispatch coordination.
+- **Scenario Lab:** Multi-timeline forecast projections (Normal, Heavy Rain, Cloudburst, Dam Sluice Release) with Web Audio synthesized atmospheric audio.
+
+### 2. 📱 Citizen Crisis Assistant
+- **Immediate Plain-Language Verdict:** Single card indicating hyper-local danger level (Safe & Dry / Rising Water / High Danger).
+- **Dry-Route Evacuation Guidance:** Real-time pathfinding routing evacuees around submerged corridors toward verified relief shelters.
+- **One-Tap Emergency SOS:** Offline-capable rescue beacon transmitting location and medical status directly to officers.
+- **Hyper-Local Ward Selector & Check-In:** Instant interactive check-ins (*"Safe & Dry"*, *"Water Entering"*, *"Evacuating Now"*) feeding the disaster map.
+- **Shelter Availability Feed:** Live shelter occupancy, clean drinking water supply, food rations, and medical inventory.
+
+---
+
+## 🧠 Decision Pipeline Architecture
 
 ```
-rainfallMmH + riverLevelRise + timeHour + hotspotWardId
-        ↓
-  runDecisionPipeline()  [src/engine/pipeline.ts]
-        ↓
-  Ward Risk Scores (0–100) per ward
-  Evacuation Routes
-  Recommended Actions with confidence %
-  Resource Deployment suggestions
-  Camp Capacity projections
+[ Sensor Stream: Rain Gauges + River Sensors + Elevation Topo + Citizen SOS ]
+                                ↓
+                 [ Deterministic Decision Engine ]
+                                ↓
+        ┌───────────────────────┼───────────────────────┐
+        ↓                       ↓                       ↓
+ [ Ward Risk Matrix ]    [ Evacuation Routes ]    [ Action Recommender ]
+   • Elevation Delays      • Submerged avoidance    • Confidence %
+   • Runoff Models         • Shelter assignments    • Delay Cost vs Lives
+                                ↓
+               [ Explainability & Audit Log ]
 ```
 
-**Phenomenon Prediction** uses 4 signals:
-1. Current rainfall rate (mm/h)
-2. Ward ground elevation (metres)
-3. River proximity risk (ward-specific factor)
-4. Time of day (night amplifies cloudburst risk)
+---
+
+## 🛠️ Technology Stack
+
+- **Frontend & Framework:** React 19, TypeScript, Vite 8
+- **State Management & Synchronization:** Zustand
+- **Animations & Micro-interactions:** Framer Motion, Tailwind CSS
+- **Visualization & Maps:** Recharts, SVG Vector Geo Engine, Google Maps Integration
+- **Acoustic Simulation:** Web Audio API Realtime Synthesizer (Zero asset overhead)
+- **Deployment:** GitHub Pages / GitHub Actions
 
 ---
 
-## 🏗️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Framework | **React 18** + **TypeScript** |
-| Build tool | **Vite** |
-| State management | **Zustand** |
-| Animations | **Framer Motion** + CSS keyframes |
-| Styling | **Tailwind CSS v4** + custom CSS variables |
-| Maps | **Google Maps Embed API** + custom SVG vector map |
-| Sound FX | **Web Audio API** (synthesized — no audio files) |
-| Icons | **Lucide React** |
-| Fonts | Inter + JetBrains Mono + Instrument Serif (Google Fonts) |
-| i18n | Custom translation engine — English / Hindi / Marathi |
-| Data | Deterministic simulation (drop-in ready for live Postgres/PostGIS) |
-
----
-
-## 🚀 Getting Started
+## 💻 Local Development Setup
 
 ### Prerequisites
-- Node.js >= 18
-- npm >= 9
+- **Node.js**: v18.0 or newer
+- **npm**: v9.0 or newer
 
-### Install & Run
+### Installation
 
 ```bash
-# Clone the repo
-git clone https://github.com/902adi/Decision-Intelligence.git
-cd Decision-Intelligence
+# 1. Clone the repository
+git clone https://github.com/902adi/Decision-Intelligence-69.git
+cd Decision-Intelligence-69
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Start the dev server
+# 3. Start local development server
 npm run dev
 ```
 
-App runs at **http://localhost:5173**
+Visit `http://localhost:5173/Decision-Intelligence-69/` in your browser.
 
-### Build for Production
+### Production Build & Deployment
 
 ```bash
+# Compile and build production bundle
 npm run build
-```
 
-Output goes to `dist/` — ready to deploy on Vercel, Netlify, or any static host.
-
----
-
-## 🗂️ Project Structure
-
-```
-src/
-├── components/
-│   ├── citizen/
-│   │   ├── CitizenView.tsx
-│   │   ├── PhenomenonForecastCard.tsx   <- AI prediction widget
-│   │   ├── SosRequestModal.tsx
-│   │   ├── SafeRouteModal.tsx
-│   │   └── ReportProblemModal.tsx
-│   ├── officer/
-│   │   ├── OfficerLayout.tsx            <- 4-tab minimal layout
-│   │   ├── OfficerSignInPage.tsx        <- Auth gate
-│   │   ├── CitySvgMap.tsx               <- Interactive ward map
-│   │   ├── RecommendedActions.tsx       <- AI actions + approve/override
-│   │   ├── SosQueuePanel.tsx
-│   │   ├── ForecastView.tsx
-│   │   └── DecisionLogView.tsx
-│   ├── common/
-│   │   ├── AnimatedBackground.tsx       <- Rain + orb animations
-│   │   ├── Header.tsx
-│   │   ├── GpsTrackerWidget.tsx
-│   │   └── ...
-│   └── landing/
-│       └── LandingPage.tsx
-├── engine/
-│   └── pipeline.ts                     <- Core AI decision engine
-├── store/
-│   └── useAppStore.ts                  <- Zustand global state
-├── i18n/
-│   └── translations.ts                 <- EN / HI / MR strings
-├── data/
-│   └── rivergate.ts                    <- Ward topology, roads, camps
-├── services/
-│   └── index.ts                        <- Data service layer
-└── utils/
-    └── soundEffects.ts                 <- Web Audio synthesis engine
+# Deploy directly to GitHub Pages (gh-pages branch)
+npm run deploy
 ```
 
 ---
 
-## 🎨 Design Principles
+## 🎨 Design Philosophy
 
-- **Minimal & calm** — In a crisis the UI must feel quiet. Muted, desaturated colors. Generous whitespace. Hairline borders.
-- **Plain language** — All citizen-facing text targets a 6th-grade reading level.
-- **Explainable AI** — Every recommendation shows *why* it was made, what signals drove it, and what alternatives were rejected.
-- **Human-in-the-loop** — Officers approve or override every AI action. Nothing is automated.
-- **Offline-resilient** — A service worker queue holds actions made without connectivity.
-- **Accessible** — Colorblind-safe pattern mode, three text sizes, prefers-reduced-motion respected.
+1. **Calm Under Pressure:** In critical emergencies, visual clutter creates panic. Rakshak employs deep slate backgrounds, high-contrast typography, and gentle micro-animations.
+2. **Decisive Directives:** Never produces ambiguous suggestions ("you may consider"). Recommends definitive action directives with time-critical windows.
+3. **Transparent Explainability:** Every automated suggestion exposes underlying telemetry drivers and rejected alternatives.
+4. **Resilient & Offline-First:** Integrated local storage fallback and Service Worker registration ensures continuity in degraded connectivity scenarios.
 
 ---
 
-## 🌐 Languages Supported
+## 📄 License & Disclaimer
 
-| Language | Status |
-|---|---|
-| English | Full |
-| Hindi | Full |
-| Marathi | Full |
-
----
-
-## 🔊 Sound Effects
-
-All sounds are **synthesized in real-time** using the Web Audio API — no audio files are downloaded:
-
-| Scenario | Sound |
-|---|---|
-| Normal Day | Peaceful C-major 9th chord chime |
-| Heavy Rain | High-density filtered noise wash |
-| Cloudburst | Lightning snap + rolling sub-bass thunder + rain surge |
-| Dam Release | Hydraulic siren drone + resonant water roar |
-| UI clicks | Soft sine-wave tap |
-| Alerts | Two-note triangle wave chime |
-
----
-
-## 🛡️ Disclaimer
-
-> This is a **prototype** for decision intelligence research and demonstration purposes. It does **not** automatically dispatch municipal forces. In a life-threatening emergency, **dial 112 immediately**.
-
----
-
-## 📄 License
-
-MIT © 2024 Rakshak Project
-
----
-
-*Built with care for every person who deserves to know — before the water rises.*
+- **License:** Distributed under the MIT License.
+- **Emergency Notice:** *This system is an AI decision intelligence demonstration and research platform. In immediate life-threatening situations, always contact municipal emergency services (112).*
